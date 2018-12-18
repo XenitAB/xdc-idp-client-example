@@ -1,0 +1,42 @@
+{
+  "name": "xdc-idp-client",
+  "version": "1.0.0",
+  "description": "A example client integrated with xdc-idp",
+  "main": "index.js",
+  "scripts": {
+    "watch": "tsc --watch",
+    "build": "tsc",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "tba"
+  },
+  "keywords": [
+    "OIDC",
+    "Xenit",
+    "iDP"
+  ],
+  "author": "Ulrik Strid <ulrik.strid@xenit.se>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/body-parser": "^1.17.0",
+    "@types/cookie-parser": "^1.4.1",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "jsonwebtoken": "^8.4.0",
+    "openid-client": "^2.4.5",
+    "passport": "^0.4.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.0",
+    "@types/express-session": "^1.15.11",
+    "@types/jsonwebtoken": "^8.3.0",
+    "@types/node": "^10.12.15",
+    "@types/passport": "^0.4.7",
+    "nodemon": "^1.18.9",
+    "typescript": "^3.2.2"
+  }
+}

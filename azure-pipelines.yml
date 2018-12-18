@@ -1,0 +1,22 @@
+name: Build XDC iDP Client - ${Build.BuildNumber}
+
+trigger:
+  - master
+
+jobs:
+  - job: Build
+    pool:
+      vmImage: vs2017-win2016
+
+    steps:
+      - template: ".ci/use-node.yml"
+
+      - script: "npm install"
+        displayName: "install"
+
+      - script: "npm run build"
+        displayName: "build"
+        continueOnError: true # It will probably error on missing types for openid-client
+
+      - template: ".ci/publish.yml"
+

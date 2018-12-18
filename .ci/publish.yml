@@ -1,0 +1,21 @@
+steps:
+  - script: "npm prune --production"
+    displayName: "prune devDependencies"
+
+  - task: CopyFiles@2
+    displayName: "Copy files"
+    inputs:
+      SourceFolder: "$(Build.SourcesDirectory)"
+      Contents: |
+        index.js
+        package.json
+        web.config
+        src/**/*
+        public/**/*
+        node_modules/**/*
+      TargetFolder: "$(Build.SourcesDirectory)/artifact/"
+
+  - task: PublishPipelineArtifact@0
+    inputs:
+      artifactName: "package"
+      targetPath: "$(Build.SourcesDirectory)/artifact"
