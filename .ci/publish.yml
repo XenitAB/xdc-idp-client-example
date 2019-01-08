@@ -13,9 +13,9 @@ steps:
         src/**/*
         public/**/*
         node_modules/**/*
-      TargetFolder: "$(Build.SourcesDirectory)/artifact/"
+      TargetFolder: "$(Build.ArtifactStagingDirectory)"
 
   - task: PublishPipelineArtifact@0
     inputs:
-      artifactName: "package"
-      targetPath: "$(Build.SourcesDirectory)/artifact"
+      artifactName: "drop"
+      targetPath: "$(Build.ArtifactStagingDirectory)"
