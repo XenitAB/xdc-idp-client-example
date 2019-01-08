@@ -16,7 +16,6 @@ jobs:
 
       - script: "npm run build"
         displayName: "build"
-        continueOnError: true # It will probably error on missing types for openid-client
 
       - template: ".ci/publish.yml"
 
