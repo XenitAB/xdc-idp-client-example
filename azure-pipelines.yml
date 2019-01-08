@@ -1,4 +1,4 @@
-name: Build XDC iDP Client - ${Build.BuildNumber}
+name: Build XDC iDP Client - $(Build.BuildNumber)
 
 trigger:
   - master
