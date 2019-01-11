@@ -26,6 +26,7 @@ declare module "openid-client" {
       scope: string;
       response_type: string;
       state: string;
+      [key: string]: string;
     };
   }
 
