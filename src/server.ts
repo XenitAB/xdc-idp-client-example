@@ -55,16 +55,21 @@ export const start = async () => {
         params: {
           client_id: config.CLIENT_ID,
           redirect_uri: config.REDIRECT_URI,
-          scope: "openid",
+          scope: "openid signature",
           response_type: "code",
-          state: "testing"
+          state: "testing",
+          bankid_sign_text: Buffer.from("Testar text").toString("base64"),
+          bankid_sign_text_hidden: Buffer.from("Dold testtext").toString(
+            "base64"
+          )
         }
       },
       (tokenset: any, userinfo: any, done: any) => {
         done(null, {
           id: tokenset.claims.sub,
           ...tokenset,
-          ...tokenset.claims
+          ...tokenset.claims,
+          userinfo
         });
       }
     )
@@ -160,6 +165,15 @@ export const start = async () => {
             <h3>PAYLOAD</h3>
             <pre><code class="qa-id_token-payload">${JSON.stringify(
               idToken.payload,
+              null,
+              2
+            )}</code></pre>
+          </div>
+          
+          <div class="card">
+            <h3>USERINFO</h3>
+            <pre><code class="qa-id_token-payload">${JSON.stringify(
+              user.userinfo,
               null,
               2
             )}</code></pre>
