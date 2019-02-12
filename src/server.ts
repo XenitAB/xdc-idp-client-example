@@ -57,18 +57,13 @@ export const start = async () => {
           redirect_uri: config.REDIRECT_URI,
           scope: "openid signature",
           response_type: "code",
-          state: "testing",
-          bankid_sign_text: Buffer.from("Testar text").toString("base64"),
-          bankid_sign_text_hidden: Buffer.from("Dold testtext").toString(
-            "base64"
-          )
+          state: "testing"
         }
       },
       (tokenset: any, userinfo: any, done: any) => {
         done(null, {
           id: tokenset.claims.sub,
           ...tokenset,
-          ...tokenset.claims,
           userinfo
         });
       }
