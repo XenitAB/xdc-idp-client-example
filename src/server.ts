@@ -57,7 +57,8 @@ export const start = async () => {
           redirect_uri: config.REDIRECT_URI,
           scope: "openid signature",
           response_type: "code",
-          state: "testing"
+          state: "testing",
+          bankid_this_device: "true"
         }
       },
       (tokenset: any, userinfo: any, done: any) => {
