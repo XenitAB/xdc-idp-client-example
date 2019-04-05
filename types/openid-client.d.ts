@@ -13,9 +13,9 @@ declare module "openid-client" {
   export class Issuer {
     static discover(
       url: string
-    ): {
+    ): Promise<{
       Client: typeof Client;
-    };
+    }>;
   }
 
   interface StrategyConfig {
